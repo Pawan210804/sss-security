@@ -5,9 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Surveillance Security Services — 24×7 Live CCTV Monitoring, Delhi NCR</title>
 <meta name="description" content="Human-watched CCTV live monitoring for shops, warehouses, societies and factories across Delhi NCR. Installation from ₹5,000. No guard required.">
-<link rel="icon" href="assets/logo.jpg">
+
+<!-- ===== SEO ===== -->
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="keywords" content="CCTV live monitoring Delhi NCR, human monitored CCTV, remote surveillance shops warehouses, security guard alternative, CCTV installation Delhi">
+<meta name="author" content="Surveillance Security Services">
+<link rel="canonical" href="https://www.surveillancesecurityservices.in/">
+<meta name="geo.region" content="IN-DL">
+<meta name="geo.placename" content="Rohini, Delhi">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Surveillance Security Services">
+<meta property="og:title" content="Surveillance Security Services — 24×7 Live CCTV Monitoring, Delhi NCR">
+<meta property="og:description" content="Human-watched CCTV live monitoring for shops, warehouses, societies and factories across Delhi NCR. Installation from ₹5,000. No guard required.">
+<meta property="og:image" content="https://www.surveillancesecurityservices.in/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.surveillancesecurityservices.in/">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Surveillance Security Services — 24×7 Live CCTV Monitoring">
+<meta name="twitter:description" content="Human-watched CCTV live monitoring for shops, warehouses, societies and factories across Delhi NCR.">
+<meta name="twitter:image" content="https://www.surveillancesecurityservices.in/assets/og-image.jpg">
+
+<!-- ===== Icons (favicon shows correctly in every browser tab, bookmark bar, and homescreen) ===== -->
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#0c1b3d">
+<meta name="msapplication-TileColor" content="#0c1b3d">
+<meta name="msapplication-TileImage" content="assets/android-chrome-192x192.png">
+
+<!-- ===== Security ===== -->
+<!-- Full protection (X-Frame-Options, HSTS, X-Content-Type-Options, Permissions-Policy) must be set as real HTTP response headers at the host/CDN — meta tags cannot deliver those. The vercel.json shared alongside this file adds them if you deploy on Vercel; ask your host for the equivalent config otherwise. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- ===== Performance ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/logo.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -43,6 +88,13 @@
   :focus-visible{outline:2px solid var(--red); outline-offset:3px;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
   section{position:relative;}
+  /* render below-the-fold sections lazily for faster first paint / lower main-thread cost */
+  section:not(.hero){content-visibility:auto; contain-intrinsic-size:1px 900px;}
+
+  /* global animation kill-switch for users who prefer reduced motion (accessibility + perceived perf) */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+  }
 
   /* reveal-on-scroll */
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
@@ -57,20 +109,49 @@
     background:rgba(255,255,255,.88);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
+    animation:header-drop .6s cubic-bezier(.2,.8,.2,1) both;
   }
+  @keyframes header-drop{from{opacity:0; transform:translateY(-14px);} to{opacity:1; transform:none;}}
   nav{
     display:flex; align-items:center; justify-content:space-between;
     padding:12px 24px; max-width:1180px; margin:0 auto;
   }
-  .brand{display:flex; align-items:center; gap:11px;}
+  .brand{display:flex; align-items:center; gap:11px; min-width:0;}
   .brand-badge{
-    width:46px; height:46px; border-radius:11px; background:var(--navy); padding:5px;
-    display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;
-    box-shadow:0 4px 14px -4px rgba(12,27,61,.5);
+    width:clamp(38px, 4.6vw, 48px); height:clamp(38px, 4.6vw, 48px);
+    aspect-ratio:1/1; border-radius:11px;
+    background:radial-gradient(circle at 50% 40%, var(--navy-2), var(--navy) 75%);
+    padding:4px; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;
+    box-shadow:0 4px 14px -4px rgba(12,27,61,.5), 0 0 0 1px rgba(200,151,31,.25) inset;
+    position:relative;
+    animation:badge-glow 3.2s ease-in-out infinite;
   }
-  .brand-badge img{width:100%; height:100%; object-fit:cover; border-radius:6px;}
-  .brand-text{font-family:var(--display); font-weight:600; letter-spacing:.3px; font-size:16.5px; line-height:1.15; color:var(--navy);}
-  .brand-text span{display:block; font-family:var(--mono); font-size:9px; letter-spacing:2px; color:var(--red); font-weight:600; margin-top:2px;}
+  .brand-badge::after{
+    content:''; position:absolute; inset:0; border-radius:11px;
+    background:conic-gradient(from 0deg, transparent 0%, rgba(227,174,46,.55) 8%, transparent 16%);
+    animation:badge-sheen 4.5s linear infinite; opacity:.8; mix-blend-mode:screen;
+  }
+  .brand-badge img{
+    width:100%; height:100%; object-fit:contain; position:relative; z-index:1;
+    filter:drop-shadow(0 0 5px rgba(227,174,46,.35));
+    transition:transform .4s ease;
+  }
+  .brand:hover .brand-badge img{transform:scale(1.08) rotate(-3deg);}
+  @keyframes badge-glow{
+    0%,100%{box-shadow:0 4px 14px -4px rgba(12,27,61,.5), 0 0 0 1px rgba(200,151,31,.25) inset, 0 0 0px rgba(227,174,46,0);}
+    50%{box-shadow:0 4px 18px -3px rgba(12,27,61,.6), 0 0 0 1px rgba(200,151,31,.4) inset, 0 0 14px rgba(227,174,46,.45);}
+  }
+  @keyframes badge-sheen{ to{ transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce){
+    .brand-badge{animation:none;}
+    .brand-badge::after{animation:none; display:none;}
+    .brand:hover .brand-badge img{transform:none;}
+  }
+  .brand-text{font-family:var(--display); font-weight:600; letter-spacing:.3px; font-size:clamp(14px,3.6vw,16.5px); line-height:1.15; color:var(--navy); white-space:nowrap;}
+  .brand-text span{display:block; font-family:var(--mono); font-size:9px; letter-spacing:1.6px; color:var(--red); font-weight:600; margin-top:2px;}
+  @media (max-width:380px){
+    .brand-text span{display:none;}
+  }
   .nav-links{display:flex; gap:30px; font-size:14px; font-weight:600;}
   .nav-links a{color:var(--muted); transition:color .2s;}
   .nav-links a:hover{color:var(--navy);}
@@ -80,11 +161,17 @@
     padding:11px 20px; border-radius:8px; font-weight:700; font-size:13.5px;
     font-family:var(--body); letter-spacing:.2px; border:1px solid transparent;
     cursor:pointer; transition:transform .15s ease, background .2s, border-color .2s, box-shadow .2s;
-    white-space:nowrap;
+    white-space:nowrap; position:relative; overflow:hidden;
   }
   .btn:hover{transform:translateY(-2px);}
   .btn-red{background:var(--red); color:#fff; box-shadow:0 8px 18px -8px rgba(224,41,63,.6);}
   .btn-red:hover{background:var(--red-dark);}
+  .btn-red::after{
+    content:''; position:absolute; top:0; left:-60%; width:40%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+    transform:skewX(-20deg); animation:btn-shimmer 3.6s ease-in-out infinite;
+  }
+  @keyframes btn-shimmer{0%{left:-60%;} 35%{left:130%;} 100%{left:130%;}}
   .btn-navy{background:var(--navy); color:#fff; box-shadow:0 8px 18px -8px rgba(12,27,61,.5);}
   .btn-navy:hover{background:var(--navy-2);}
   .btn-ghost{border-color:var(--line); color:var(--navy); background:#fff;}
@@ -317,13 +404,41 @@
   .menu-close{align-self:flex-end; background:none; border:none; margin-bottom:10px; cursor:pointer;}
   .menu-close svg{width:22px; height:22px; stroke:var(--navy);}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SecurityService",
+  "name": "Surveillance Security Services",
+  "alternateName": "SSS Security",
+  "image": "https://www.surveillancesecurityservices.in/assets/og-image.jpg",
+  "url": "https://www.surveillancesecurityservices.in/",
+  "telephone": "+919097665764",
+  "email": "surveillanceliveservices@gmail.com",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "F-4/181, Sector 16, Rohini",
+    "addressLocality": "Delhi",
+    "addressRegion": "DL",
+    "addressCountry": "IN"
+  },
+  "areaServed": "Delhi NCR",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "sameAs": []
+}
+</script>
 </head>
 <body>
 
 <header>
   <nav>
     <div class="brand">
-      <div class="brand-badge"><img src="assets/logo.jpg" alt="Surveillance Security Services logo"></div>
+      <div class="brand-badge"><img src="assets/logo.png" alt="Surveillance Security Services logo" width="48" height="48" fetchpriority="high"></div>
       <div class="brand-text">Surveillance Security<span>SSS · LIVE MONITORING</span></div>
     </div>
     <div class="nav-links">
@@ -572,7 +687,7 @@
     <div class="foot-top">
       <div class="foot-brand">
         <div class="brand">
-          <div class="brand-badge"><img src="assets/logo.jpg" alt="Surveillance Security Services logo"></div>
+          <div class="brand-badge"><img src="assets/logo.png" alt="Surveillance Security Services logo" width="48" height="48" loading="lazy" decoding="async"></div>
           <div class="brand-text">Surveillance Security<span>SSS · LIVE MONITORING</span></div>
         </div>
         <p>Human-watched CCTV live monitoring for shops, warehouses, societies and factories across Delhi NCR.</p>
@@ -694,4 +809,4 @@
   document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click', closeMenu));
 </script>
 </body>
-</html>
+                           </html>
